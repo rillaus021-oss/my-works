@@ -6,7 +6,7 @@
 /*   By: scahamad <scahamad@learner.42.tech>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/30 22:13:22 by scahamad          #+#    #+#             */
-/*   Updated: 2026/09/30 22:32:39 by scahamad         ###   ########.fr       */
+/*   Updated: 2026/10/01 15:05:09 by scahamad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ int	ft_strcmp(char *s1, char *s2)
 	i = 0;
 	while (s1[i] != '\0' && s1[i] == s2[i])
 		i++;
-	return ((unsigned char)s1[i] - (unsigned char)s2[i]);
+	return (s1[i] - s2[i]);
 }
 
 void	ft_sort_params(int argc, char **argv)
