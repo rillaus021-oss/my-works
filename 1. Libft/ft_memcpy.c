@@ -10,14 +10,16 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stddef.h>
+#include <unistd.h>
 
-void *ft_memcpy(void *restrict dest, const void *restrict src, size_t n)
+void *ft_memcpy(void *dest, const void *src, size_t n)
 {
     size_t i;
-    for (i = 0; i < n; i++)
+    i = 0;
+    while (i < n)
     {
-        dest[i] = src[i];
+        ((unsigned char *)dest)[i] = ((unsigned char *)src)[i];
+        i++;
     }
-    return (&dest)
+    return (dest);
 }

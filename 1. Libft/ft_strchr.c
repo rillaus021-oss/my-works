@@ -10,16 +10,15 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-
-char * ft_strchr(const char *str, int c)
+#include <unistd.h>
+char *ft_strchr(const char *s, int c)
 {
     int i = 0;
-    while (str[i])
+    while (s[i])
     {
-        if (str[i] == (char)c)
-            return ((char *)&str[i]);
-        else
-            i++;
+        if (s[i] == (char)c)
+            return ((char *)&s[i]);
+        i++;
     }
-    return(NULL);
+    return (NULL);
 }
