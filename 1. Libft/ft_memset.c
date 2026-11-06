@@ -23,7 +23,7 @@ void *ft_memset(void *s, int c, size_t n)
 	}
 	return (s);
 }
-
+/*
 #include <stdio.h>
 int main(void)
 {
@@ -32,4 +32,4 @@ int main(void)
     ft_memset(str, 126, 3);
     printf("Après : %s\n", str);
     return (0);
-}
+}*/

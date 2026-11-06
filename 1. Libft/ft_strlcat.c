@@ -10,11 +10,12 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <stddef.h>
 
-char	*ft_strlcat(char *dest, char *src)
+char	*ft_strlcat(char *dest, const char *src, size_t size)
 {
-	long	i;
-	long	j;
+	size_t	i;
+	size_t	j;
 
 	i = 0;
 	while (dest[i])

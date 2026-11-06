@@ -10,18 +10,23 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-
-char    *ft_strlcpy(char *dest, char *src)
+#include <stddef.h>
+size_t ft_strlcpy(char *dest, const char *src, size_t size)
 {
-    long i;
+    size_t i;
+    size_t len;
     i = 0;
-    while(src[i])
+    len = ft_strlen(src);
+    if (size > 0)
     {
-        dest[i] = src[i];
-        i++;
+        while (src[i] && i < size -1)
+        {
+            dest[i] = src[i];
+            i++;
+        }
+        dest[i] = '\0';
     }
-    dest[i] = '\0';
-    return(dest);
+    return (len);
 }
 
 /*

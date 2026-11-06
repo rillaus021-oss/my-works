@@ -13,25 +13,20 @@
 
 #include <stdio.h>
 
-char	*ft_toupper(char *str)
+int	*ft_toupper(int c)
 {
-	int	i;
-
-	i = 0;
-	while (str[i] != '\0')
-	{
-		if (str[i] >= 'a' && str[i] <= 'z')
-			str[i] = str[i] - 32;
-		i++;
-	}
-	return (str);
+	if (c >= 'a' && c <= 'z')
+		return (c - 32);
+	return (c);
 }
 /*
 int	main(void)
 {
-	char	str[] = "TeeSt42";
+	char	c
+	[] = "TeeSt42";
 
-	ft_toupper(str);
+	ft_toupper(c
+	);
 	printf("%s\n", str);
 	return (0);
 }*/
