@@ -10,18 +10,22 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
-void ft_bzero(void *s, size_t n)
+#include <stddef.h>
+
+void	ft_bzero(void *s, size_t n)
 {
-	size_t i;
+	unsigned char	*p;
+	size_t			i;
+
+	p = (unsigned char *)s;
 	i = 0;
-	unsigned char *ptr = (unsigned char *)s;
 	while (i < n)
 	{
-		ptr[i] = 0;
+		p[i] = 0;
 		i++;
 	}
 }
+
 /*
 #include <stdio.h>
 int main(void)

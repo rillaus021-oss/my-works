@@ -12,28 +12,19 @@
 
 #include <unistd.h>
 
-void	ft_putchar(char c)
-{
-	write(1, &c, 1);
-}
-
 void	ft_putnbr_fd(int n, int fd)
 {
 	long	nb;
+	char	c;
 
 	nb = n;
-	if (n < 0)
+	if (nb < 0)
 	{
 		write(fd, "-", 1);
-		nb = -n;
+		nb = -nb;
 	}
-	if (nb >= 0 && nb < 10)
-	{
-		ft_putchar_fd(nb + '0');
-	}
-	else
-	{
-		ft_putnr(nb / 10);
-		ft_putnbr(nb % 10);
-	}
+	if (nb >= 10)
+		ft_putnbr_fd((int)(nb / 10), fd);
+	c = (nb % 10) + '0';
+	write(fd, &c, 1);
 }

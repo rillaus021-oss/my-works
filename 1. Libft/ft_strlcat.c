@@ -12,23 +12,30 @@
 
 #include <stddef.h>
 
-char	*ft_strlcat(char *dest, const char *src, size_t size)
-{
-	size_t	i;
-	size_t	j;
+size_t	ft_strlen(const char *s);
 
+size_t	ft_strlcat(char *dst, const char *src, size_t size)
+{
+	size_t	d;
+	size_t	s;
+	size_t	i;
+
+	d = 0;
+	while (d < size && dst[d])
+		d++;
+	s = ft_strlen(src);
+	if (d == size)
+		return (size + s);
 	i = 0;
-	while (dest[i])
-		i++;
-	j = 0;
-	while (src[j])
+	while (src[i] && d + i < size - 1)
 	{
-		dest[i + j] = src[j];
-		j++;
+		dst[d + i] = src[i];
+		i++;
 	}
-	dest[i + j] = '\0';
-	return (dest);
+	dst[d + i] = '\0';
+	return (d + s);
 }
+
 /*
 #include <stdio.h>
 
