@@ -12,7 +12,7 @@
 
 #include <stdio.h>
 
-int	*ft_toupper(int c)
+int	ft_tolower(int c)
 {
 	if (c >= 'A' && c <= 'Z')
 		return (c + 32);
@@ -24,7 +24,7 @@ int	main(void)
 	char	c
 	[] = "TeeSt42";
 
-	ft_toupper(c
+	ft_tolower(c
 	);
 	printf("%s\n", str);
 	return (0);
