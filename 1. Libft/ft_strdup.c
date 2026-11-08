@@ -11,43 +11,23 @@
 /* ************************************************************************** */
 
 #include <stdlib.h>
-#include <stdio.h>
 
-int	ft_strlen(char *str)
+size_t ft_strlen(const char *s);
+
+char *ft_strdup(const char *src)
 {
-	int	i;
+    char *copy;
+    size_t i;
 
-	i = 0;
-	while (str[i])
-		i++;
-	return (i);
+    copy = malloc(ft_strlen(src) + 1);
+    if (!copy)
+        return (NULL);
+    i = 0;
+    while (src[i])
+    {
+        copy[i] = src[i];
+        i++;
+    }
+    copy[i] = '\0';
+    return (copy);
 }
-
-char	*ft_strdup(char *src)
-{
-	char	*copy;
-	int		i;
-
-	i = 0;
-	if (src == NULL)
-		return (NULL);
-	copy = malloc(sizeof(char) * (ft_strlen(src) + 1));
-	if (copy == NULL)
-		return (NULL);
-	while (src[i])
-	{
-		copy[i] = src[i];
-		i++;
-	}
-	copy[i] = '\0';
-	return (copy);
-}
-/*
-int main(void)
-{
-	char str[] = "Bonjour";
-	char *copy;
-	copy = ft_strdup(str);
-	printf("%s", copy);
-	return (0);
-}*/

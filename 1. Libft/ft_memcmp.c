@@ -17,12 +17,3 @@ int	ft_memcmp(const void *s1, const void *s2, size_t n)
     }
     return (0);
 }
-
-int main(void)
-{
-    printf("%d\n", ft_memcmp("ABC", "ABC", 3));
-    printf("%d\n", ft_memcmp("ABC", "ABD", 3));
-    printf("%d\n", ft_memcmp("ABD", "ABC", 3));
-    printf("%d\n", ft_memcmp("ABC", "XYZ", 0));
-    return (0);
-}

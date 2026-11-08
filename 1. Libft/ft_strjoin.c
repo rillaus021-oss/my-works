@@ -10,81 +10,39 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <stdint.h>
 #include <stdlib.h>
-#include <stdio.h>
 
-int	ft_strlen(char *str)
+size_t ft_strlen(const char *s);
+
+char *ft_strjoin(char const *s1, char const *s2)
 {
-	int	i;
+    size_t len1;
+    size_t len2;
+    size_t i;
+    char *joined;
 
-	i = 0;
-	while (str[i] != '\0')
-		i++;
-	return (i);
+    if (!s1 || !s2)
+        return (NULL);
+    len1 = ft_strlen(s1);
+    len2 = ft_strlen(s2);
+    if (len2 == SIZE_MAX || len1 > SIZE_MAX - len2 - 1)
+        return (NULL);
+    joined = malloc(len1 + len2 + 1);
+    if (!joined)
+        return (NULL);
+    i = 0;
+    while (i < len1)
+    {
+        joined[i] = s1[i];
+        i++;
+    }
+    i = 0;
+    while (i < len2)
+    {
+        joined[len1 + i] = s2[i];
+        i++;
+    }
+    joined[len1 + len2] = '\0';
+    return (joined);
 }
-
-int	len_total(int size, char **strs, char *sep)
-{
-	int	i;
-	int	total;
-
-	i = 0;
-	total = 0;
-	while (i < size)
-	{
-		total += ft_strlen(strs[i]);
-		i++;
-	}
-	total += ft_strlen(sep) * (size - 1);
-	total += 1;
-	return (total);
-}
-
-char	*ft_copy(char **strs, char *str, int size, char *sep)
-{
-	int	i;
-	int	j;
-	int	k;
-
-	i = 0;
-	k = 0;
-	while (i < size)
-	{
-		j = 0;
-		while (strs[i][j] != '\0' )
-			str[k++] = strs[i][j++];
-		j = 0;
-		while ((i < size - 1) && sep[j])
-			str[k++] = sep[j++];
-		i++;
-	}
-	str[k] = '\0';
-	return (str);
-}
-
-char	*ft_strjoin(int size, char **strs, char *sep)
-{
-	char	*join;
-
-	if (size <= 0)
-	{
-		join = malloc(sizeof(char));
-		if (join == NULL)
-			return (NULL);
-		join[0] = '\0';
-		return (join);
-	}
-	join = malloc(sizeof(char) * len_total(size, strs, sep));
-	if (join == NULL)
-		return (NULL);
-	return (ft_copy(strs, join, size, sep));
-}
-/*
-int	main(void)
-{
-	char	*str;
-	char	*argv[4] =  {"ceci", "est", "tarpin", "dur"};
-	str = ft_strjoin(4, argv, "--");
-	printf("%s\n", str);
-	return (0);
-}*/
