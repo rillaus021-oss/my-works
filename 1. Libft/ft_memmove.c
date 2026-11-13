@@ -36,3 +36,15 @@ void	*ft_memmove(void *dest, const void *src, size_t n)
 	}
 	return (dest);
 }
+
+/*
+** TEST RAPIDE : decommenter ce bloc pour tester cette fonction.
+** Compiler ce fichier avec libft.a, sans inclure deux fois le meme .o.
+
+#include "libft.h"
+#include <stdio.h>
+#include <stdlib.h>
+#include <limits.h>
+
+int main(void) { char s[] = "123456789"; ft_memmove(s + 2, s, 5); printf("%s\n", s); return (0); }
+*/

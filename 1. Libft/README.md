@@ -79,3 +79,9 @@ AI was used for tutoring and explanations about pointers, linked lists,
 Makefiles, and C programming, and to assist with final code review,
 refactoring, compilation checks, and README preparation. The submitted
 implementations should be understood and verified by the student.
+
+## Quick tests
+
+Each `ft_*.c` file includes a commented-out `main` test at the bottom.
+These examples are excluded from compilation by default. Uncomment only
+one test at a time in a separate copy of the file if you want to run it.

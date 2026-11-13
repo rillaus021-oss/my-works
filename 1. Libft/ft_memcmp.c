@@ -29,3 +29,15 @@ int	ft_memcmp(const void *s1, const void *s2, size_t n)
 	}
 	return (0);
 }
+
+/*
+** TEST RAPIDE : decommenter ce bloc pour tester cette fonction.
+** Compiler ce fichier avec libft.a, sans inclure deux fois le meme .o.
+
+#include "libft.h"
+#include <stdio.h>
+#include <stdlib.h>
+#include <limits.h>
+
+int main(void) { printf("%d\n", ft_memcmp("abc", "abd", 3)); return (0); }
+*/

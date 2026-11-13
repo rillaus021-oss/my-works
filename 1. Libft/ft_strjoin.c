@@ -31,3 +31,15 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	ft_memcpy(out + a, s2, b + 1);
 	return (out);
 }
+
+/*
+** TEST RAPIDE : decommenter ce bloc pour tester cette fonction.
+** Compiler ce fichier avec libft.a, sans inclure deux fois le meme .o.
+
+#include "libft.h"
+#include <stdio.h>
+#include <stdlib.h>
+#include <limits.h>
+
+int main(void) { char *s = ft_strjoin("Bon", "jour"); if (!s) return (1); printf("%s\n", s); free(s); return (0); }
+*/

@@ -16,3 +16,15 @@ void	ft_putchar_fd(char c, int fd)
 {
 	write(fd, &c, 1);
 }
+
+/*
+** TEST RAPIDE : decommenter ce bloc pour tester cette fonction.
+** Compiler ce fichier avec libft.a, sans inclure deux fois le meme .o.
+
+#include "libft.h"
+#include <stdio.h>
+#include <stdlib.h>
+#include <limits.h>
+
+int main(void) { ft_putchar_fd('A', 1); ft_putchar_fd('\n', 1); return (0); }
+*/

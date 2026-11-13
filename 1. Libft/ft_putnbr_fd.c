@@ -28,3 +28,15 @@ void	ft_putnbr_fd(int n, int fd)
 	c = (char)('0' + nb % 10);
 	ft_putchar_fd(c, fd);
 }
+
+/*
+** TEST RAPIDE : decommenter ce bloc pour tester cette fonction.
+** Compiler ce fichier avec libft.a, sans inclure deux fois le meme .o.
+
+#include "libft.h"
+#include <stdio.h>
+#include <stdlib.h>
+#include <limits.h>
+
+int main(void) { ft_putnbr_fd(INT_MIN, 1); ft_putchar_fd('\n', 1); return (0); }
+*/

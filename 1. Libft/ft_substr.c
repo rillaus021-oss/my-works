@@ -31,3 +31,15 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	out[len] = '\0';
 	return (out);
 }
+
+/*
+** TEST RAPIDE : decommenter ce bloc pour tester cette fonction.
+** Compiler ce fichier avec libft.a, sans inclure deux fois le meme .o.
+
+#include "libft.h"
+#include <stdio.h>
+#include <stdlib.h>
+#include <limits.h>
+
+int main(void) { char *s = ft_substr("Bonjour", 3, 4); if (!s) return (1); printf("%s\n", s); free(s); return (0); }
+*/

@@ -24,3 +24,15 @@ void	*ft_calloc(size_t nmemb, size_t size)
 	ft_bzero(p, nmemb * size);
 	return (p);
 }
+
+/*
+** TEST RAPIDE : decommenter ce bloc pour tester cette fonction.
+** Compiler ce fichier avec libft.a, sans inclure deux fois le meme .o.
+
+#include "libft.h"
+#include <stdio.h>
+#include <stdlib.h>
+#include <limits.h>
+
+int main(void) { int *p = ft_calloc(3, sizeof(int)); if (!p) return (1); printf("%d %d %d\n", p[0], p[1], p[2]); free(p); return (0); }
+*/

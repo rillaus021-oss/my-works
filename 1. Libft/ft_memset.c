@@ -26,3 +26,15 @@ void	*ft_memset(void *b, int c, size_t len)
 	}
 	return (b);
 }
+
+/*
+** TEST RAPIDE : decommenter ce bloc pour tester cette fonction.
+** Compiler ce fichier avec libft.a, sans inclure deux fois le meme .o.
+
+#include "libft.h"
+#include <stdio.h>
+#include <stdlib.h>
+#include <limits.h>
+
+int main(void) { char s[10] = "Bonjour"; ft_memset(s, 'X', 3); printf("%s\n", s); return (0); }
+*/

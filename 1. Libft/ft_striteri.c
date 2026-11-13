@@ -25,3 +25,26 @@ void	ft_striteri(char *s, void (*f)(unsigned int, char *))
 		i++;
 	}
 }
+
+/*
+** TEST RAPIDE : decommenter ce bloc pour tester cette fonction.
+** Compiler ce fichier avec libft.a, sans inclure deux fois le meme .o.
+
+#include "libft.h"
+#include <stdio.h>
+#include <stdlib.h>
+#include <limits.h>
+
+static void upper_iter(unsigned int i, char *c)
+{
+    (void)i;
+    *c = (char)ft_toupper(*c);
+}
+int main(void)
+{
+    char s[] = "bonjour";
+    ft_striteri(s, upper_iter);
+    printf("%s\n", s);
+    return (0);
+}
+*/

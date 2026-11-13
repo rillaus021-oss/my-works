@@ -16,3 +16,15 @@ int	ft_isprint(int c)
 {
 	return (c >= 32 && c <= 126);
 }
+
+/*
+** TEST RAPIDE : decommenter ce bloc pour tester cette fonction.
+** Compiler ce fichier avec libft.a, sans inclure deux fois le meme .o.
+
+#include "libft.h"
+#include <stdio.h>
+#include <stdlib.h>
+#include <limits.h>
+
+int main(void) { printf("A: %d | newline: %d\n", ft_isprint('A'), ft_isprint('\n')); return (0); }
+*/

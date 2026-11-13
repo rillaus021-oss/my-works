@@ -24,3 +24,15 @@ char	*ft_strdup(const char *s1)
 	ft_memcpy(copy, s1, len + 1);
 	return (copy);
 }
+
+/*
+** TEST RAPIDE : decommenter ce bloc pour tester cette fonction.
+** Compiler ce fichier avec libft.a, sans inclure deux fois le meme .o.
+
+#include "libft.h"
+#include <stdio.h>
+#include <stdlib.h>
+#include <limits.h>
+
+int main(void) { char *s = ft_strdup("Hello 42"); if (!s) return (1); printf("%s\n", s); free(s); return (0); }
+*/

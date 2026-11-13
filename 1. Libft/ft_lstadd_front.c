@@ -19,3 +19,25 @@ void	ft_lstadd_front(t_list **lst, t_list *new)
 	new->next = *lst;
 	*lst = new;
 }
+
+/*
+** TEST RAPIDE : decommenter ce bloc pour tester cette fonction.
+** Compiler ce fichier avec libft.a, sans inclure deux fois le meme .o.
+
+#include "libft.h"
+#include <stdio.h>
+#include <stdlib.h>
+#include <limits.h>
+
+int main(void)
+{
+    t_list *lst = ft_lstnew("B");
+    t_list *new_node = ft_lstnew("A");
+    if (!lst || !new_node) { free(lst); free(new_node); return (1); }
+    ft_lstadd_front(&lst, new_node);
+    printf("%s -> %s\n", (char *)lst->content, (char *)lst->next->content);
+    free(lst->next);
+    free(lst);
+    return (0);
+}
+*/

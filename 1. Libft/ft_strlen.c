@@ -21,3 +21,15 @@ size_t	ft_strlen(const char *s)
 		i++;
 	return (i);
 }
+
+/*
+** TEST RAPIDE : decommenter ce bloc pour tester cette fonction.
+** Compiler ce fichier avec libft.a, sans inclure deux fois le meme .o.
+
+#include "libft.h"
+#include <stdio.h>
+#include <stdlib.h>
+#include <limits.h>
+
+int main(void) { printf("%zu\n", ft_strlen("Bonjour")); return (0); }
+*/

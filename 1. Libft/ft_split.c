@@ -71,3 +71,28 @@ char	**ft_split(char const *s, char c)
 	tab[i] = NULL;
 	return (tab);
 }
+
+/*
+** TEST RAPIDE : decommenter ce bloc pour tester cette fonction.
+** Compiler ce fichier avec libft.a, sans inclure deux fois le meme .o.
+
+#include "libft.h"
+#include <stdio.h>
+#include <stdlib.h>
+#include <limits.h>
+
+int main(void)
+{
+    char **tab = ft_split("Bonjour tout le monde", ' ');
+    int i = 0;
+    if (!tab) return (1);
+    while (tab[i])
+    {
+        printf("[%s]\n", tab[i]);
+        free(tab[i]);
+        i++;
+    }
+    free(tab);
+    return (0);
+}
+*/

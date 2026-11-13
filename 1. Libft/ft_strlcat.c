@@ -33,3 +33,15 @@ size_t	ft_strlcat(char *dst, const char *src, size_t size)
 	dst[d + i] = '\0';
 	return (d + s);
 }
+
+/*
+** TEST RAPIDE : decommenter ce bloc pour tester cette fonction.
+** Compiler ce fichier avec libft.a, sans inclure deux fois le meme .o.
+
+#include "libft.h"
+#include <stdio.h>
+#include <stdlib.h>
+#include <limits.h>
+
+int main(void) { char dst[12] = "Bon"; size_t n = ft_strlcat(dst, "jour", sizeof(dst)); printf("dst: %s | retour: %zu\n", dst, n); return (0); }
+*/

@@ -49,3 +49,15 @@ char	*ft_itoa(int n)
 	}
 	return (out);
 }
+
+/*
+** TEST RAPIDE : decommenter ce bloc pour tester cette fonction.
+** Compiler ce fichier avec libft.a, sans inclure deux fois le meme .o.
+
+#include "libft.h"
+#include <stdio.h>
+#include <stdlib.h>
+#include <limits.h>
+
+int main(void) { char *s = ft_itoa(INT_MIN); if (!s) return (1); printf("%s\n", s); free(s); return (0); }
+*/

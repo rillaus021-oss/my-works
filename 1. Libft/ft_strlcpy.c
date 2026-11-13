@@ -30,3 +30,15 @@ size_t	ft_strlcpy(char *dst, const char *src, size_t size)
 	}
 	return (len);
 }
+
+/*
+** TEST RAPIDE : decommenter ce bloc pour tester cette fonction.
+** Compiler ce fichier avec libft.a, sans inclure deux fois le meme .o.
+
+#include "libft.h"
+#include <stdio.h>
+#include <stdlib.h>
+#include <limits.h>
+
+int main(void) { char dst[5]; size_t n = ft_strlcpy(dst, "Bonjour", sizeof(dst)); printf("dst: %s | retour: %zu\n", dst, n); return (0); }
+*/
