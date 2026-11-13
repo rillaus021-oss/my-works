@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: scahamad <scahamad@learner.42.tech>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/11/13 00:00:00 by scahamad          #+#    #+#             */
-/*   Updated: 2026/11/13 00:00:00 by scahamad         ###   ########.fr       */
+/*   Created: 2026/11/03 16:00:40 by scahamad          #+#    #+#             */
+/*   Updated: 2026/11/03 16:00:43 by scahamad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,15 +34,13 @@ int	ft_atoi(const char *str)
 	}
 	return ((int)(nb * sign));
 }
-
 /*
-** TEST RAPIDE : decommenter ce bloc pour tester cette fonction.
-** Compiler ce fichier avec libft.a, sans inclure deux fois le meme .o.
 
 #include "libft.h"
 #include <stdio.h>
 #include <stdlib.h>
 #include <limits.h>
 
-int main(void) { printf("%d | %d | %d\n", ft_atoi("42"), ft_atoi("  -123abc"), ft_atoi("+7")); return (0); }
+int main(void) { printf("%d | %d | %d\n", ft_atoi("42"), 
+ft_atoi("  -123abc"), ft_atoi("+7")); return (0); }
 */

@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: scahamad <scahamad@learner.42.tech>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/11/13 00:00:00 by scahamad          #+#    #+#             */
-/*   Updated: 2026/11/13 00:00:00 by scahamad         ###   ########.fr       */
+/*   Created: 2026/11/13 21:06:47 by scahamad          #+#    #+#             */
+/*   Updated: 2026/11/13 21:06:49 by scahamad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,16 +28,7 @@ void	ft_lstclear(t_list **lst, void (*del)(void *))
 	}
 	*lst = NULL;
 }
-
 /*
-** TEST RAPIDE : decommenter ce bloc pour tester cette fonction.
-** Compiler ce fichier avec libft.a, sans inclure deux fois le meme .o.
-
-#include "libft.h"
-#include <stdio.h>
-#include <stdlib.h>
-#include <limits.h>
-
 int main(void)
 {
     char *a = ft_strdup("A");
@@ -47,7 +38,8 @@ int main(void)
     if (!a || !b) { free(a); free(b); return (1); }
     lst = ft_lstnew(a);
     second = ft_lstnew(b);
-    if (!lst || !second) { free(lst); free(second); free(a); free(b); return (1); }
+    if (!lst || !second) { free(lst); free(second);
+    free(a); free(b); return (1); }
     ft_lstadd_back(&lst, second);
     ft_lstclear(&lst, free);
     printf("Liste vide : %s\n", lst == NULL ? "OUI" : "NON");

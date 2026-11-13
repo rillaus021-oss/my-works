@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: scahamad <scahamad@learner.42.tech>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/11/13 00:00:00 by scahamad          #+#    #+#             */
-/*   Updated: 2026/11/13 00:00:00 by scahamad         ###   ########.fr       */
+/*   Created: 2026/11/02 12:21:45 by scahamad          #+#    #+#             */
+/*   Updated: 2026/11/02 12:28:00 by scahamad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,15 +16,19 @@ int	ft_isalnum(int c)
 {
 	return (ft_isalpha(c) || ft_isdigit(c));
 }
-
 /*
-** TEST RAPIDE : decommenter ce bloc pour tester cette fonction.
-** Compiler ce fichier avec libft.a, sans inclure deux fois le meme .o.
-
-#include "libft.h"
 #include <stdio.h>
-#include <stdlib.h>
-#include <limits.h>
-
-int main(void) { printf("A: %d | 5: %d | @: %d\n", ft_isalnum('A'), ft_isalnum('5'), ft_isalnum('@')); return (0); }
-*/
+int main(void)
+{
+	char c = 'A';
+	char n = '5';
+	if(ft_isalnum(c))
+		printf("'%c' est alnum\n", c);
+	else
+		printf("'%c' n'est pas alnum\n", c);
+	if(ft_isalnum(n))
+                printf("'%c' est alnum\n", n);
+        else
+                printf("'%c' n'est pas qlnum\n", n);
+	return(0);
+}*/

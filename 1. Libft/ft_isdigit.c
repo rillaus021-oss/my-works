@@ -5,26 +5,30 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: scahamad <scahamad@learner.42.tech>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/11/13 00:00:00 by scahamad          #+#    #+#             */
-/*   Updated: 2026/11/13 00:00:00 by scahamad         ###   ########.fr       */
+/*   Created: 2026/11/02 11:56:24 by scahamad          #+#    #+#             */
+/*   Updated: 2026/11/02 12:17:28 by scahamad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-
 int	ft_isdigit(int c)
 {
-	return (c >= '0' && c <= '9');
+	if (c >= '0' && c <= '9')
+		return (1);
+	return (0);
 }
-
 /*
-** TEST RAPIDE : decommenter ce bloc pour tester cette fonction.
-** Compiler ce fichier avec libft.a, sans inclure deux fois le meme .o.
-
-#include "libft.h"
 #include <stdio.h>
-#include <stdlib.h>
-#include <limits.h>
-
-int main(void) { printf("5: %d | A: %d\n", ft_isdigit('5'), ft_isdigit('A')); return (0); }
-*/
+int main(void)
+{
+	char c = 'E';
+	int n = 5;
+	if(ft_isdigit(c))
+		printf("'%c' est un chiffre\n", c);
+	else
+		printf("'%c' n'est pas un chiffre\n", c);
+	if(ft_isdigit(n))
+                printf("'%d' est un chiffre\n", n);
+        else
+                printf("'%d' n'est pas un chiffre\n", n);
+	return(0);
+}*/

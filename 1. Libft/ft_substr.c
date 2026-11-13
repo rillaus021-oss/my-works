@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: scahamad <scahamad@learner.42.tech>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/11/13 00:00:00 by scahamad          #+#    #+#             */
-/*   Updated: 2026/11/13 00:00:00 by scahamad         ###   ########.fr       */
+/*   Created: 2026/11/09 13:55:58 by scahamad          #+#    #+#             */
+/*   Updated: 2026/11/13 21:45:30 by scahamad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,32 +14,26 @@
 
 char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
-	char	*out;
-	size_t	n;
+	size_t	s_len;
+	size_t	i;
+	char	*tab;
 
 	if (!s)
 		return (NULL);
-	n = ft_strlen(s);
-	if (start >= n)
-		return (ft_strdup(""));
-	if (len > n - start)
-		len = n - start;
-	out = malloc(len + 1);
-	if (!out)
+	s_len = ft_strlen(s);
+	i = 0;
+	if (start >= s_len)
+		len = 0;
+	else if (len > s_len - start)
+		len = s_len - start;
+	tab = malloc(len + 1);
+	if (!tab)
 		return (NULL);
-	ft_memcpy(out, s + start, len);
-	out[len] = '\0';
-	return (out);
+	while (i < len)
+	{
+		tab[i] = s[start + i];
+		i++;
+	}
+	tab[i] = '\0';
+	return (tab);
 }
-
-/*
-** TEST RAPIDE : decommenter ce bloc pour tester cette fonction.
-** Compiler ce fichier avec libft.a, sans inclure deux fois le meme .o.
-
-#include "libft.h"
-#include <stdio.h>
-#include <stdlib.h>
-#include <limits.h>
-
-int main(void) { char *s = ft_substr("Bonjour", 3, 4); if (!s) return (1); printf("%s\n", s); free(s); return (0); }
-*/

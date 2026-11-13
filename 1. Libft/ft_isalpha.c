@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: scahamad <scahamad@learner.42.tech>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/11/13 00:00:00 by scahamad          #+#    #+#             */
-/*   Updated: 2026/11/13 00:00:00 by scahamad         ###   ########.fr       */
+/*   Created: 2026/11/02 11:42:10 by scahamad          #+#    #+#             */
+/*   Updated: 2026/11/13 20:35:12 by scahamad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,17 +14,24 @@
 
 int	ft_isalpha(int c)
 {
-	return ((c >= 'A' && c <= 'Z') || (c >= 'a' && c <= 'z'));
+	if ((c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z'))
+		return (1);
+	else
+		return (0);
 }
-
 /*
-** TEST RAPIDE : decommenter ce bloc pour tester cette fonction.
-** Compiler ce fichier avec libft.a, sans inclure deux fois le meme .o.
-
-#include "libft.h"
 #include <stdio.h>
-#include <stdlib.h>
-#include <limits.h>
-
-int main(void) { printf("A: %d | 5: %d\n", ft_isalpha('A'), ft_isalpha('5')); return (0); }
+int main(void)
+{
+	char c = 'E';
+	int n = 5;
+	if(ft_isalpha(c))
+		printf("'%c' est une lettre\n", c);
+	else
+		printf("'%c' n'est pas une lettre\n", c);
+	if(ft_isalpha(n))
+                printf("'%d' est une lettre\n", n);
+        else
+                printf("'%d' n'est pas une lettre\n", n);
+}
 */

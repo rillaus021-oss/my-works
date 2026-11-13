@@ -5,59 +5,68 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: scahamad <scahamad@learner.42.tech>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/11/13 00:00:00 by scahamad          #+#    #+#             */
-/*   Updated: 2026/11/13 00:00:00 by scahamad         ###   ########.fr       */
+/*   Created: 2026/11/09 14:58:52 by scahamad          #+#    #+#             */
+/*   Updated: 2026/11/13 21:54:04 by scahamad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static size_t	ft_digits(long n)
+static int	count_chars(int n)
 {
-	size_t	len;
+	long	nb;
+	int		count;
 
-	len = (n <= 0);
-	while (n)
+	nb = n;
+	count = 0;
+	if (n < 0)
 	{
-		len++;
-		n /= 10;
+		nb = -nb;
+		count++;
 	}
-	return (len);
+	if (n == 0)
+		count = 1;
+	while (nb > 0)
+	{
+		nb = nb / 10;
+		count++;
+	}
+	return (count);
 }
 
 char	*ft_itoa(int n)
 {
 	long	nb;
-	size_t	len;
-	char	*out;
+	int		count;
+	char	*tab;
 
 	nb = n;
-	len = ft_digits(nb);
-	out = malloc(len + 1);
-	if (!out)
+	count = count_chars(n);
+	tab = malloc(count + 1);
+	if (!tab)
 		return (NULL);
-	out[len] = '\0';
+	tab[count] = '\0';
 	if (nb < 0)
 	{
-		out[0] = '-';
+		tab[0] = '-';
 		nb = -nb;
 	}
-	while (len > (size_t)(n < 0))
+	if (nb == 0)
+		tab[0] = '0';
+	while (nb > 0)
 	{
-		out[--len] = (char)('0' + nb % 10);
-		nb /= 10;
+		count--;
+		tab[count] = (nb % 10) + '0';
+		nb = nb / 10;
 	}
-	return (out);
+	return (tab);
 }
-
 /*
-** TEST RAPIDE : decommenter ce bloc pour tester cette fonction.
-** Compiler ce fichier avec libft.a, sans inclure deux fois le meme .o.
-
-#include "libft.h"
-#include <stdio.h>
-#include <stdlib.h>
-#include <limits.h>
-
-int main(void) { char *s = ft_itoa(INT_MIN); if (!s) return (1); printf("%s\n", s); free(s); return (0); }
-*/
+int main(void)
+{
+    char *s = ft_itoa(INT_MIN);
+    if (!s)
+        return (1);
+    printf("%s\n", s);
+    free(s);
+}*/

@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: scahamad <scahamad@learner.42.tech>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/11/13 00:00:00 by scahamad          #+#    #+#             */
-/*   Updated: 2026/11/13 00:00:00 by scahamad         ###   ########.fr       */
+/*   Created: 2026/11/03 12:56:35 by scahamad          #+#    #+#             */
+/*   Updated: 2026/11/03 12:56:37 by scahamad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ size_t	ft_strlcat(char *dst, const char *src, size_t size)
 	if (d == size)
 		return (size + s);
 	i = 0;
-	while (src[i] && i < size - d - 1)
+	while (src[i] && d + i < size - 1)
 	{
 		dst[d + i] = src[i];
 		i++;
@@ -35,13 +35,13 @@ size_t	ft_strlcat(char *dst, const char *src, size_t size)
 }
 
 /*
-** TEST RAPIDE : decommenter ce bloc pour tester cette fonction.
-** Compiler ce fichier avec libft.a, sans inclure deux fois le meme .o.
-
-#include "libft.h"
 #include <stdio.h>
-#include <stdlib.h>
-#include <limits.h>
 
-int main(void) { char dst[12] = "Bon"; size_t n = ft_strlcat(dst, "jour", sizeof(dst)); printf("dst: %s | retour: %zu\n", dst, n); return (0); }
-*/
+int main(void)
+{
+	char src[] = "test";
+	char dest[10] = "42";
+
+	printf("%s\n", ft_strlcat(dest, src));
+	return (0);
+}*/

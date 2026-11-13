@@ -5,48 +5,68 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: scahamad <scahamad@learner.42.tech>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/11/13 00:00:00 by scahamad          #+#    #+#             */
-/*   Updated: 2026/11/13 00:00:00 by scahamad         ###   ########.fr       */
+/*   Created: 2026/11/09 13:55:47 by scahamad          #+#    #+#             */
+/*   Updated: 2026/11/13 21:44:20 by scahamad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static int	ft_in_set(char c, char const *set)
-{
-	while (*set)
-	{
-		if (c == *set)
-			return (1);
-		set++;
-	}
-	return (0);
-}
-
 char	*ft_strtrim(char const *s1, char const *set)
 {
+	char	*tab;
 	size_t	start;
 	size_t	end;
+	size_t	i;
 
 	if (!s1 || !set)
 		return (NULL);
 	start = 0;
 	end = ft_strlen(s1);
-	while (start < end && ft_in_set(s1[start], set))
+	while (s1[start] && ft_strchr(set, s1[start]))
 		start++;
-	while (end > start && ft_in_set(s1[end - 1], set))
+	while (end > start && ft_strchr(set, s1[end - 1]))
 		end--;
-	return (ft_substr(s1, (unsigned int)start, end - start));
+	tab = malloc(end - start + 1);
+	if (!tab)
+		return (NULL);
+	i = 0;
+	while (start < end)
+		tab[i++] = s1[start++];
+	tab[i] = '\0';
+	return (tab);
 }
 
 /*
-** TEST RAPIDE : decommenter ce bloc pour tester cette fonction.
-** Compiler ce fichier avec libft.a, sans inclure deux fois le meme .o.
+int main(void)
+{
+    char *s1;
+    char *set;
+    char *result;
 
-#include "libft.h"
-#include <stdio.h>
-#include <stdlib.h>
-#include <limits.h>
+    // Test 1 : suppression d'espaces et de ponctuations au début et à la fin
+    s1 = "   Hello, 42 World!   ";
+    set = " H!";
+    result = ft_strtrim(s1, set);
+    printf("Test 1 - Original: '%s'\n", s1);
+    printf("Test 1 - Trimmed : '%s' (Attendu: 'ello, 42 World')\n\n", result);
+    free(result);
 
-int main(void) { char *s = ft_strtrim("xxxBonjourxxx", "x"); if (!s) return (1); printf("%s\n", s); free(s); return (0); }
-*/
+    // Test 2 : chaîne contenant uniquement des caractères du set
+    s1 = "xxxxxx";
+    set = "x";
+    result = ft_strtrim(s1, set);
+    printf("Test 2 - Original: '%s'\n", s1);
+    printf("Test 2 - Trimmed : '%s' (Attendu: '')\n\n", result);
+    free(result);
+
+    // Test 3 : chaîne sans caractères du set aux extrémités
+    s1 = "NoTrimHere";
+    set = "xyz";
+    result = ft_strtrim(s1, set);
+    printf("Test 3 - Original: '%s'\n", s1);
+    printf("Test 3 - Trimmed : '%s' (Attendu: 'NoTrimHere')\n\n", result);
+    free(result);
+
+    return (0);
+}*/

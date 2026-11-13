@@ -5,36 +5,34 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: scahamad <scahamad@learner.42.tech>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/11/13 00:00:00 by scahamad          #+#    #+#             */
-/*   Updated: 2026/11/13 00:00:00 by scahamad         ###   ########.fr       */
+/*   Created: 2026/11/02 13:06:02 by scahamad          #+#    #+#             */
+/*   Updated: 2026/11/02 13:37:20 by scahamad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memset(void *b, int c, size_t len)
+void	*ft_memset(void *s, int c, size_t n)
 {
-	unsigned char	*p;
+	unsigned char	*ptr;
 	size_t			i;
 
-	p = (unsigned char *)b;
 	i = 0;
-	while (i < len)
+	ptr = (unsigned char *)s;
+	while (i < n)
 	{
-		p[i] = (unsigned char)c;
+		ptr[i] = c;
 		i++;
 	}
-	return (b);
+	return (s);
 }
-
 /*
-** TEST RAPIDE : decommenter ce bloc pour tester cette fonction.
-** Compiler ce fichier avec libft.a, sans inclure deux fois le meme .o.
-
-#include "libft.h"
 #include <stdio.h>
-#include <stdlib.h>
-#include <limits.h>
-
-int main(void) { char s[10] = "Bonjour"; ft_memset(s, 'X', 3); printf("%s\n", s); return (0); }
-*/
+int main(void)
+{
+    char str[] = "bonjour";
+    printf("Avant : %s\n", str);
+    ft_memset(str, 126, 3);
+    printf("Après : %s\n", str);
+    return (0);
+}*/

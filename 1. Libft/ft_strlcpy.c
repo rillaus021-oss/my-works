@@ -1,44 +1,47 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlcpy.c                                       :+:      :+:    :+:   */
+/*   ft_strcpy.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: scahamad <scahamad@learner.42.tech>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/11/13 00:00:00 by scahamad          #+#    #+#             */
-/*   Updated: 2026/11/13 00:00:00 by scahamad         ###   ########.fr       */
+/*   Created: 2026/11/02 12:52:25 by scahamad          #+#    #+#             */
+/*   Updated: 2026/11/02 13:05:57 by scahamad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	ft_strlcpy(char *dst, const char *src, size_t size)
+size_t	ft_strlcpy(char *dest, const char *src, size_t size)
 {
 	size_t	i;
 	size_t	len;
 
-	len = ft_strlen(src);
 	i = 0;
+	len = ft_strlen(src);
 	if (size > 0)
 	{
 		while (src[i] && i < size - 1)
 		{
-			dst[i] = src[i];
+			dest[i] = src[i];
 			i++;
 		}
-		dst[i] = '\0';
+		dest[i] = '\0';
 	}
 	return (len);
 }
-
 /*
-** TEST RAPIDE : decommenter ce bloc pour tester cette fonction.
-** Compiler ce fichier avec libft.a, sans inclure deux fois le meme .o.
-
-#include "libft.h"
 #include <stdio.h>
-#include <stdlib.h>
-#include <limits.h>
 
-int main(void) { char dst[5]; size_t n = ft_strlcpy(dst, "Bonjour", sizeof(dst)); printf("dst: %s | retour: %zu\n", dst, n); return (0); }
-*/
+int	main(void)
+{
+	char	source[] = "Bonjour 42";
+	char	destination[] = "vide";
+	char	*retour;
+
+	printf("Source      : %s\n", source);
+	printf("Destination : %s\n", destination);
+    retour = ft_strlcpy(destination, source);
+	printf("Retour      : %s\n", retour);
+	return (0);
+}*/

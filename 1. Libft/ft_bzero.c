@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_bzero.c                                         :+:      :+:    :+:   */
+/*   bzero.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: scahamad <scahamad@learner.42.tech>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/11/13 00:00:00 by scahamad          #+#    #+#             */
-/*   Updated: 2026/11/13 00:00:00 by scahamad         ###   ########.fr       */
+/*   Created: 2026/11/03 12:31:42 by scahamad          #+#    #+#             */
+/*   Updated: 2026/11/03 12:31:46 by scahamad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,13 +18,12 @@ void	ft_bzero(void *s, size_t n)
 }
 
 /*
-** TEST RAPIDE : decommenter ce bloc pour tester cette fonction.
-** Compiler ce fichier avec libft.a, sans inclure deux fois le meme .o.
-
-#include "libft.h"
 #include <stdio.h>
-#include <stdlib.h>
-#include <limits.h>
-
-int main(void) { char s[] = "Bonjour"; ft_bzero(s, 3); printf("%d %d %d %c\n", s[0], s[1], s[2], s[3]); return (0); }
-*/
+int main(void)
+{
+    char str[] = "Bonjour";
+    printf("Avant : %s\n", str);
+    ft_bzero(str, 1);
+    printf("Après : %s\n", str);
+    return (0);
+}*/

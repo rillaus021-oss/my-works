@@ -5,26 +5,30 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: scahamad <scahamad@learner.42.tech>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/11/13 00:00:00 by scahamad          #+#    #+#             */
-/*   Updated: 2026/11/13 00:00:00 by scahamad         ###   ########.fr       */
+/*   Created: 2026/11/02 12:33:14 by scahamad          #+#    #+#             */
+/*   Updated: 2026/11/02 12:37:34 by scahamad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-
 int	ft_isascii(int c)
 {
-	return (c >= 0 && c <= 127);
+	if (c >= 0 && c <= 127)
+		return (1);
+	else
+		return (0);
 }
-
 /*
-** TEST RAPIDE : decommenter ce bloc pour tester cette fonction.
-** Compiler ce fichier avec libft.a, sans inclure deux fois le meme .o.
-
-#include "libft.h"
 #include <stdio.h>
-#include <stdlib.h>
-#include <limits.h>
-
-int main(void) { printf("65: %d | 200: %d\n", ft_isascii(65), ft_isascii(200)); return (0); }
-*/
+int	main(void)
+{
+	char c = 'k';
+	char d = '!';
+	if (ft_isascii(c))
+		printf("ok");
+	else
+		printf("non");
+	if (ft_isascii(d))
+		printf("ok");
+	else
+		printf("non");
+}*/

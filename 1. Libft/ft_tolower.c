@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: scahamad <scahamad@learner.42.tech>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/11/13 00:00:00 by scahamad          #+#    #+#             */
-/*   Updated: 2026/11/13 00:00:00 by scahamad         ###   ########.fr       */
+/*   Created: 2026/11/04 17:54:06 by scahamad          #+#    #+#             */
+/*   Updated: 2026/11/04 17:54:09 by scahamad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,15 +18,14 @@ int	ft_tolower(int c)
 		return (c + 32);
 	return (c);
 }
-
 /*
-** TEST RAPIDE : decommenter ce bloc pour tester cette fonction.
-** Compiler ce fichier avec libft.a, sans inclure deux fois le meme .o.
+int	main(void)
+{
+	char	c
+	[] = "TeeSt42";
 
-#include "libft.h"
-#include <stdio.h>
-#include <stdlib.h>
-#include <limits.h>
-
-int main(void) { printf("%c\n", ft_tolower('Z')); return (0); }
-*/
+	ft_tolower(c
+	);
+	printf("%s\n", str);
+	return (0);
+}*/

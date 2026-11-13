@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: scahamad <scahamad@learner.42.tech>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/11/13 00:00:00 by scahamad          #+#    #+#             */
-/*   Updated: 2026/11/13 00:00:00 by scahamad         ###   ########.fr       */
+/*   Created: 2026/11/09 13:55:06 by scahamad          #+#    #+#             */
+/*   Updated: 2026/11/13 21:29:40 by scahamad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,13 +33,14 @@ char	*ft_strjoin(char const *s1, char const *s2)
 }
 
 /*
-** TEST RAPIDE : decommenter ce bloc pour tester cette fonction.
-** Compiler ce fichier avec libft.a, sans inclure deux fois le meme .o.
+int	main(void)
+{
+	char	*result;
 
-#include "libft.h"
-#include <stdio.h>
-#include <stdlib.h>
-#include <limits.h>
-
-int main(void) { char *s = ft_strjoin("Bon", "jour"); if (!s) return (1); printf("%s\n", s); free(s); return (0); }
-*/
+	result = ft_strjoin("Bon", "jour");
+	if (!result)
+		return (1);
+	printf("Résultat : %s\n", result);
+	free(result);
+	return (0);
+}*/

@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: scahamad <scahamad@learner.42.tech>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/11/13 00:00:00 by scahamad          #+#    #+#             */
-/*   Updated: 2026/11/13 00:00:00 by scahamad         ###   ########.fr       */
+/*   Created: 2026/11/10 15:52:02 by scahamad          #+#    #+#             */
+/*   Updated: 2026/11/10 15:52:04 by scahamad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,27 +31,3 @@ char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 	out[i] = '\0';
 	return (out);
 }
-
-/*
-** TEST RAPIDE : decommenter ce bloc pour tester cette fonction.
-** Compiler ce fichier avec libft.a, sans inclure deux fois le meme .o.
-
-#include "libft.h"
-#include <stdio.h>
-#include <stdlib.h>
-#include <limits.h>
-
-static char upper_map(unsigned int i, char c)
-{
-    (void)i;
-    return ((char)ft_toupper(c));
-}
-int main(void)
-{
-    char *s = ft_strmapi("bonjour", upper_map);
-    if (!s) return (1);
-    printf("%s\n", s);
-    free(s);
-    return (0);
-}
-*/
