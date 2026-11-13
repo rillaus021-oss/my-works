@@ -5,60 +5,47 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: scahamad <scahamad@learner.42.tech>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/11/09 14:58:52 by scahamad          #+#    #+#             */
-/*   Updated: 2026/11/09 14:58:53 by scahamad         ###   ########.fr       */
+/*   Created: 2026/11/13 00:00:00 by scahamad          #+#    #+#             */
+/*   Updated: 2026/11/13 00:00:00 by scahamad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stddef.h>
-#include <stdlib.h>
+#include "libft.h"
 
-static int count_chars(int n)
+static size_t	ft_digits(long n)
 {
-    long    nb;
-    int     count;
+	size_t	len;
 
-    nb = n;
-    count = 0;
-    if (n < 0)
-    {
-        nb = -nb;
-        count++;
-    }
-    if (n == 0)
-        count = 1;
-    while (nb > 0)
-    {
-        nb = nb / 10;
-        count++;
-    }
-    return (count);
+	len = (n <= 0);
+	while (n)
+	{
+		len++;
+		n /= 10;
+	}
+	return (len);
 }
 
-char *ft_itoa(int n)
+char	*ft_itoa(int n)
 {
-    long    nb;
-    int     count;
-    char    *tab;
+	long	nb;
+	size_t	len;
+	char	*out;
 
-    nb = n;
-    count = count_chars(n);
-    tab = malloc(count + 1);
-    if (!tab)
-        return (NULL);
-    tab[count] = '\0';
-    if (nb < 0)
-    {
-        tab[0] = '-';
-        nb = -nb;
-    }
-    if (nb == 0)
-        tab[0] = '0';
-    while (nb > 0)
-    {
-        count--;
-        tab[count] = (nb % 10) + '0';
-        nb = nb/10;
-    }
-    return (tab);
+	nb = n;
+	len = ft_digits(nb);
+	out = malloc(len + 1);
+	if (!out)
+		return (NULL);
+	out[len] = '\0';
+	if (nb < 0)
+	{
+		out[0] = '-';
+		nb = -nb;
+	}
+	while (len > (size_t)(n < 0))
+	{
+		out[--len] = (char)('0' + nb % 10);
+		nb /= 10;
+	}
+	return (out);
 }

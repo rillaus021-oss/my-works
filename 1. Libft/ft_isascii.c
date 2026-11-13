@@ -5,30 +5,14 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: scahamad <scahamad@learner.42.tech>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/11/02 12:33:14 by scahamad          #+#    #+#             */
-/*   Updated: 2026/11/02 12:37:34 by scahamad         ###   ########.fr       */
+/*   Created: 2026/11/13 00:00:00 by scahamad          #+#    #+#             */
+/*   Updated: 2026/11/13 00:00:00 by scahamad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "libft.h"
+
 int	ft_isascii(int c)
 {
-	if (c >= 0 && c <= 127)
-		return(1);
-	else
-		return(0);
+	return (c >= 0 && c <= 127);
 }
-/*
-#include <stdio.h>
-int	main(void)
-{
-	char c = 'k';
-	char d = '!';
-	if (ft_isascii(c))
-		printf("ok");
-	else
-		printf("non");
-	if (ft_isascii(d))
-		printf("ok");
-	else
-		printf("non");
-}*/

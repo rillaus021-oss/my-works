@@ -5,27 +5,22 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: scahamad <scahamad@learner.42.tech>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/11/04 18:00:23 by scahamad          #+#    #+#             */
-/*   Updated: 2026/11/04 18:00:25 by scahamad         ###   ########.fr       */
+/*   Created: 2026/11/13 00:00:00 by scahamad          #+#    #+#             */
+/*   Updated: 2026/11/13 00:00:00 by scahamad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
+#include "libft.h"
 
-char *ft_strdup(const char *src)
+char	*ft_strdup(const char *s1)
 {
-    char *copy;
-    size_t i;
+	char	*copy;
+	size_t	len;
 
-    copy = malloc(ft_strlen(src) + 1);
-    if (!copy)
-        return (NULL);
-    i = 0;
-    while (src[i])
-    {
-        copy[i] = src[i];
-        i++;
-    }
-    copy[i] = '\0';
-    return (copy);
+	len = ft_strlen(s1);
+	copy = malloc(len + 1);
+	if (!copy)
+		return (NULL);
+	ft_memcpy(copy, s1, len + 1);
+	return (copy);
 }

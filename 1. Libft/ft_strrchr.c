@@ -5,22 +5,25 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: scahamad <scahamad@learner.42.tech>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/11/05 19:16:09 by scahamad          #+#    #+#             */
-/*   Updated: 2026/11/05 19:16:12 by scahamad         ###   ########.fr       */
+/*   Created: 2026/11/13 00:00:00 by scahamad          #+#    #+#             */
+/*   Updated: 2026/11/13 00:00:00 by scahamad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
-char *ft_strrchr(const char *s, int c)
+#include "libft.h"
+
+char	*ft_strrchr(const char *s, int c)
 {
-    int i = 0;
-    while (s[i])
-        i++;
-    while (i >= 0)
-    {    
-        if (s[i] == (char)c)
-            return ((char *)&s[i]);
-        i--;
-    }
-    return (NULL);
+	char	*last;
+
+	last = NULL;
+	while (*s)
+	{
+		if (*s == (char)c)
+			last = (char *)s;
+		s++;
+	}
+	if ((char)c == '\0')
+		return ((char *)s);
+	return (last);
 }

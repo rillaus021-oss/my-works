@@ -5,12 +5,12 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: scahamad <scahamad@learner.42.tech>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/11/03 12:56:35 by scahamad          #+#    #+#             */
-/*   Updated: 2026/11/03 12:56:37 by scahamad         ###   ########.fr       */
+/*   Created: 2026/11/13 00:00:00 by scahamad          #+#    #+#             */
+/*   Updated: 2026/11/13 00:00:00 by scahamad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stddef.h>
+#include "libft.h"
 
 size_t	ft_strlcat(char *dst, const char *src, size_t size)
 {
@@ -25,7 +25,7 @@ size_t	ft_strlcat(char *dst, const char *src, size_t size)
 	if (d == size)
 		return (size + s);
 	i = 0;
-	while (src[i] && d + i < size - 1)
+	while (src[i] && i < size - d - 1)
 	{
 		dst[d + i] = src[i];
 		i++;
@@ -33,15 +33,3 @@ size_t	ft_strlcat(char *dst, const char *src, size_t size)
 	dst[d + i] = '\0';
 	return (d + s);
 }
-
-/*
-#include <stdio.h>
-
-int main(void)
-{
-	char src[] = "test";
-	char dest[10] = "42";
-
-	printf("%s\n", ft_strlcat(dest, src));
-	return (0);
-}*/

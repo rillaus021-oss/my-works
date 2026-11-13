@@ -5,12 +5,12 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: scahamad <scahamad@learner.42.tech>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/11/05 18:59:20 by scahamad          #+#    #+#             */
-/*   Updated: 2026/11/05 18:59:21 by scahamad         ###   ########.fr       */
+/*   Created: 2026/11/13 00:00:00 by scahamad          #+#    #+#             */
+/*   Updated: 2026/11/13 00:00:00 by scahamad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
+#include "libft.h"
 
 void	ft_putnbr_fd(int n, int fd)
 {
@@ -20,11 +20,11 @@ void	ft_putnbr_fd(int n, int fd)
 	nb = n;
 	if (nb < 0)
 	{
-		write(fd, "-", 1);
+		ft_putchar_fd('-', fd);
 		nb = -nb;
 	}
-	if (nb >= 10)
+	if (nb > 9)
 		ft_putnbr_fd((int)(nb / 10), fd);
-	c = (nb % 10) + '0';
-	write(fd, &c, 1);
+	c = (char)('0' + nb % 10);
+	ft_putchar_fd(c, fd);
 }

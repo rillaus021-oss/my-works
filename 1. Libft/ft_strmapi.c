@@ -5,29 +5,29 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: scahamad <scahamad@learner.42.tech>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/11/10 15:52:02 by scahamad          #+#    #+#             */
-/*   Updated: 2026/11/10 15:52:04 by scahamad         ###   ########.fr       */
+/*   Created: 2026/11/13 00:00:00 by scahamad          #+#    #+#             */
+/*   Updated: 2026/11/13 00:00:00 by scahamad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
+#include "libft.h"
 
-char    *ft_strmapi(char const *s, char (*f)(unsigned int, char))
+char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 {
-    char    *tab;
-    unsigned int    i;
+	char			*out;
+	unsigned int	i;
 
-    if (!s || !f)
-        return (NULL);
-    tab = malloc(ft_strlen(s) + 1);
-    if (!tab)
-        return (NULL);
-    i = 0;
-    while (s[i])
-    {
-        tab[i] = f(i, s[i]);
-        i++;
-    }
-    tab[i] = '\0';
-    return (tab);
+	if (!s || !f)
+		return (NULL);
+	out = malloc(ft_strlen(s) + 1);
+	if (!out)
+		return (NULL);
+	i = 0;
+	while (s[i])
+	{
+		out[i] = f(i, s[i]);
+		i++;
+	}
+	out[i] = '\0';
+	return (out);
 }

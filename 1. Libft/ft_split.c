@@ -5,91 +5,69 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: scahamad <scahamad@learner.42.tech>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/11/09 14:52:37 by scahamad          #+#    #+#             */
-/*   Updated: 2026/11/09 14:52:38 by scahamad         ###   ########.fr       */
+/*   Created: 2026/11/13 00:00:00 by scahamad          #+#    #+#             */
+/*   Updated: 2026/11/13 00:00:00 by scahamad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
+#include "libft.h"
 
-static int	count_words(char const *s, char c)
+static size_t	ft_count_words(char const *s, char c)
 {
-	int	i;
-	int	count;
+	size_t	count;
 
-	i = 0;
 	count = 0;
-	while (s[i])
+	while (*s)
 	{
-		while (s[i] == c && s[i])
-			i++;
-		if (s[i])
+		while (*s && *s == c)
+			s++;
+		if (*s)
 			count++;
-		while (s[i] && s[i] != c)
-			i++;
+		while (*s && *s != c)
+			s++;
 	}
 	return (count);
 }
 
-static char	*copy_word(char const *s, char c)
+static void	ft_free_words(char **tab, size_t n)
 {
-	int		len;
-	int		i;
-	char	*word;
-
-	len = 0;
-	while (s[len] && s[len] != c)
-		len++;
-	word = malloc(len + 1);
-	if (!word)
-		return (NULL);
-	i = 0;
-	while (i < len)
-	{
-		word[i] = s[i];
-		i++;
-	}
-	word[i] = '\0';
-	return (word);
+	while (n > 0)
+		free(tab[--n]);
+	free(tab);
 }
 
-static void	free_words(char **tab, int count)
+static char	*ft_next_word(char const **s, char c)
 {
-	while (count > 0)
-	{
-		count--;
-		free(tab[count]);
-	}
-	free(tab);
+	char const	*start;
+
+	while (**s && **s == c)
+		(*s)++;
+	start = *s;
+	while (**s && **s != c)
+		(*s)++;
+	return (ft_substr(start, 0, *s - start));
 }
 
 char	**ft_split(char const *s, char c)
 {
 	char	**tab;
-	int		i;
-	int		j;
+	size_t	count;
+	size_t	i;
 
 	if (!s)
 		return (NULL);
-	tab = malloc(sizeof(char *) * (count_words(s, c) + 1));
+	count = ft_count_words(s, c);
+	tab = malloc(sizeof(char *) * (count + 1));
 	if (!tab)
 		return (NULL);
 	i = 0;
-	j = 0;
-	while (s[i])
+	while (i < count)
 	{
-		while (s[i] == c && s[i])
-			i++;
-		if (s[i])
-		{
-			tab[j] = copy_word(&s[i], c);
-			if (!tab[j])
-				return (free_words(tab, j), NULL);
-			j++;
-		}
-		while (s[i] && s[i] != c)
-			i++;
+		tab[i] = ft_next_word(&s, c);
+		if (!tab[i])
+			return (ft_free_words(tab, i), NULL);
+		i++;
 	}
-	tab[j] = NULL;
+	tab[i] = NULL;
 	return (tab);
 }
