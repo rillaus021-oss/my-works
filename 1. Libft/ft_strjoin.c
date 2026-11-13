@@ -43,7 +43,7 @@ char	*ft_strjoin(char const *s1, char const *s2)
     return (tab);
 }
 
-
+/*
 int	main(void)
 {
 	char	*result;
@@ -54,4 +54,4 @@ int	main(void)
 	printf("Résultat : %s\n", result);
 	free(result);
 	return (0);
-}
+}*/
