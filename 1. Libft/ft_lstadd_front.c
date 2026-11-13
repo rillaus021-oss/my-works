@@ -1,6 +1,14 @@
-void	ft_lstadd_front(t_list **lst, t_list *new)
+#include <stdlib.h>
+
+typedef struct s_list
 {
-	if (!lst || !new)
+    void            *content;
+    struct s_list    *next;
+}    t_list;
+
+void    ft_lstadd_front(t_list **lst, t_list *new)
+{
+    if (!lst || !new)
         return ;
     new->next = *lst;
     *lst = new;

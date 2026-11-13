@@ -13,7 +13,7 @@
 #include <stddef.h>
 #include <stdlib.h>
 
-int count_chars(int n)
+static int count_chars(int n)
 {
     long    nb;
     int     count;
