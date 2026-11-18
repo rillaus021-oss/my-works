@@ -84,7 +84,6 @@ Run from the directory containing the source files and Makefile:
 
 ```sh
 make          # Build all 43 functions into libft.a
-make all      # Same as make
 make clean    # Remove object files
 make fclean   # Remove object files and libft.a
 make re       # Rebuild the entire library
