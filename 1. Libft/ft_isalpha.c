@@ -1,14 +1,4 @@
 /* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   ft_isalpha.c                                       :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: scahamad <scahamad@learner.42.tech>        +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/11/02 11:42:10 by scahamad          #+#    #+#             */
-/*   Updated: 2026/11/13 20:35:12 by scahamad         ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
 
 #include "libft.h"
 
@@ -19,19 +9,3 @@ int	ft_isalpha(int c)
 	else
 		return (0);
 }
-/*
-#include <stdio.h>
-int main(void)
-{
-	char c = 'E';
-	int n = 5;
-	if(ft_isalpha(c))
-		printf("'%c' est une lettre\n", c);
-	else
-		printf("'%c' n'est pas une lettre\n", c);
-	if(ft_isalpha(n))
-                printf("'%d' est une lettre\n", n);
-        else
-                printf("'%d' n'est pas une lettre\n", n);
-}
-*/

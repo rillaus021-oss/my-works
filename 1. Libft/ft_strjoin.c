@@ -1,14 +1,4 @@
 /* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   ft_strjoin.c                                       :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: scahamad <scahamad@learner.42.tech>        +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/11/09 13:55:06 by scahamad          #+#    #+#             */
-/*   Updated: 2026/11/13 21:29:40 by scahamad         ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
 
 #include "libft.h"
 
@@ -31,16 +21,3 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	ft_memcpy(out + a, s2, b + 1);
 	return (out);
 }
-
-/*
-int	main(void)
-{
-	char	*result;
-
-	result = ft_strjoin("Bon", "jour");
-	if (!result)
-		return (1);
-	printf("Résultat : %s\n", result);
-	free(result);
-	return (0);
-}*/

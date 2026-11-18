@@ -1,14 +1,4 @@
 /* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   ft_strlcat.c                                       :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: scahamad <scahamad@learner.42.tech>        +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/11/03 12:56:35 by scahamad          #+#    #+#             */
-/*   Updated: 2026/11/03 12:56:37 by scahamad         ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
 
 #include "libft.h"
 
@@ -33,15 +23,3 @@ size_t	ft_strlcat(char *dst, const char *src, size_t size)
 	dst[d + i] = '\0';
 	return (d + s);
 }
-
-/*
-#include <stdio.h>
-
-int main(void)
-{
-	char src[] = "test";
-	char dest[10] = "42";
-
-	printf("%s\n", ft_strlcat(dest, src));
-	return (0);
-}*/
