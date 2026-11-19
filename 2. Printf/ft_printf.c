@@ -18,12 +18,10 @@ int	ft_printf(const char *format, ...)
             i++;
             count++;
         }
-        else if (format[i + 1] == 'c' || format[i + 1] == 's' || format[i + 1] == 'd'
-                || format[i + 1] == 'i' || format[i + 1] == 'u' || format[i + 1] == 'x' 
-                || format[i + 1] == 'X' || format[i + 1] == 'p')
+        else if (ft_isformat(format[i + 1]))
         {
-            count += ft_printformat(format[i + 1], args);
-            i += 2;
+        	count += ft_printformat(format[i + 1], args);
+        	i += 2;
         }
         else if (format[i + 1] == '%')
         {
