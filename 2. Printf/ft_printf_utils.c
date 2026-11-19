@@ -99,3 +99,11 @@ int     ft_printptr(void *ptr)
     count += ft_putaddress((unsigned long)ptr);
     return (count);
 }
+
+int	ft_isformat(char c)
+{
+	if (c == 'c' || c == 's' || c == 'd' || c == 'i'
+		|| c == 'u' || c == 'x' || c == 'X' || c == 'p')
+		return (1);
+	return (0);
+}
