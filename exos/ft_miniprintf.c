@@ -8,7 +8,12 @@ int	ft_putunsigned(unsigned int n)
 	int		count;
 
 	count = 0;
-	/* À toi de compléter */
+	if (n >= 10)
+		count += ft_putunsigned(n / 10);
+	c = (n % 10) + '0';
+	write(1, &c, 1);
+    count++;
+    return (count);
 }
 
 int	ft_putnbr(int n)
@@ -16,7 +21,6 @@ int	ft_putnbr(int n)
 	long	nb;
 	char	c;
     int     count;
-    int     n;
 
 	nb = n;
     count = 0;
@@ -47,11 +51,32 @@ int	ft_putstr(char *str)
     return (i);
 }
 
+int	ft_puthex(unsigned int n, char format)
+{
+	char	*base;
+	int		count;
+	char	c;
+
+	count = 0;
+	if (format == 'x')
+		base = "0123456789abcdef";
+	else
+		base = "0123456789ABCDEF";
+	if (n >= 16)
+		count += ft_puthex(n / 16, format);
+	c = base[n % 16];
+	write(1, &c, 1);
+	count++;
+	return (count);
+}
+
 int	ft_printf(const char *format, ...)
 {
 	va_list	args;
 	int		i;
 	char	c;
+    int     n;
+    unsigned int    u;
     int	count;
     char    *str;
 
@@ -86,10 +111,22 @@ int	ft_printf(const char *format, ...)
             i += 2;
             count++;
         }
+        else if (format[i + 1] == 'u')
+        {
+            u = va_arg(args, unsigned int);
+            i += 2;
+            count += ft_putunsigned(u);
+        }
         else if (format[i + 1] == 'd' || format[i + 1] == 'i')
         {
             n = va_arg(args, int);
             count += ft_putnbr(n);
+            i += 2;
+        }
+        else if (format[i + 1] == 'x' || format[i + 1] == 'X')
+        {
+            u = va_arg(args, unsigned int);
+            count += ft_puthex(u, format[i + 1]);
             i += 2;
         }
         else
