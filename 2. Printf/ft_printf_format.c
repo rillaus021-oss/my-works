@@ -18,3 +18,11 @@ int    ft_printformat(char format, va_list args)
         return (ft_printptr(va_arg(args, void *)));
     return (0);
 }
+
+int	ft_isformat(char c)
+{
+	if (c == 'c' || c == 's' || c == 'd' || c == 'i'
+		|| c == 'u' || c == 'x' || c == 'X' || c == 'p')
+		return (1);
+	return (0);
+}
