@@ -11,8 +11,7 @@ int	ft_putunsigned(unsigned int n)
 	if (n >= 10)
 		count += ft_putunsigned(n / 10);
 	c = (n % 10) + '0';
-	write(1, &c, 1);
-    count++;
+	count += ft_putchar(c);
     return (count);
 }
 
@@ -33,8 +32,7 @@ int	ft_putnbr(int n)
 	if (nb >= 10)
 		count += ft_putnbr((int)(nb / 10));
 	c = (nb % 10) + '0';
-	write(1, &c, 1);
-    count++;
+	count += ft_putchar(c);
     return (count);
 }
 
@@ -70,8 +68,7 @@ int	ft_puthex(unsigned int n, char format)
 	if (n >= 16)
 		count += ft_puthex(n / 16, format);
 	c = base[n % 16];
-	write(1, &c, 1);
-	count++;
+	count += ft_putchar(c);
 	return (count);
 }
 
@@ -86,8 +83,7 @@ int ft_putaddress(unsigned long n)
     if (n >= 16)
         count += ft_putaddress(n/16);
     c = base[n % 16];
-    write(1, &c, 1);
-	count++;
+    count += ft_putchar(c);
 	return (count);
 }
 
@@ -117,9 +113,8 @@ int	ft_printf(const char *format, ...)
         else if (format[i + 1] == 'c')
         {
             c = va_arg(args, int);
-            write(1, &c, 1);
+            count += ft_putchar(c);
             i += 2;
-            count++;
         }
         else if (format[i + 1] == 's')
         {
