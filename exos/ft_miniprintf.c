@@ -70,6 +70,22 @@ int	ft_puthex(unsigned int n, char format)
 	return (count);
 }
 
+int ft_putaddress(unsigned long n)
+{
+    char    *base;
+    char    c;
+    int     count;
+    
+    base = "0123456789abcdef";
+    count = 0;
+    if (n >= 16)
+        count += ft_putaddress(n/16);
+    c = base[n % 16];
+    write(1, &c, 1);
+	count++;
+	return (count);
+}
+
 int	ft_printf(const char *format, ...)
 {
 	va_list	args;
@@ -79,6 +95,7 @@ int	ft_printf(const char *format, ...)
     unsigned int    u;
     int	count;
     char    *str;
+    void    *ptr;
 
 	i = 0;
     count = 0;
