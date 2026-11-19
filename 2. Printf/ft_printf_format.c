@@ -14,5 +14,7 @@ int    ft_printformat(char format, va_list args)
         return (ft_puthex(va_arg(args, unsigned int), format));
     if (format == 'p')
         return (ft_printptr(va_arg(args, void *)));
+    if (format == 'p')
+        return (ft_printptr(va_arg(args, void *)));
     return (0);
 }
