@@ -146,6 +146,13 @@ int	ft_printf(const char *format, ...)
             count += ft_puthex(u, format[i + 1]);
             i += 2;
         }
+        else if (format[i + 1] == 'p')
+        {
+            ptr = va_arg(args, void *);
+            count += write(1, "0x", 2);
+            count += ft_putaddress((unsigned long)ptr);
+            i += 2;
+        }
         else
             i++;
     }
