@@ -14,9 +14,8 @@ int	ft_printf(const char *format, ...)
     {
         if (format[i] != '%')
         {
-            write(1, &format[i], 1);
+            count += write(1, &format[i], 1);
             i++;
-            count++;
         }
         else if (ft_isformat(format[i + 1]))
         {
