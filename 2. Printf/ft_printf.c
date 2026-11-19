@@ -4,7 +4,6 @@ int	ft_printf(const char *format, ...)
 {
 	va_list	args;
 	int		i;
-    unsigned int    u;
     int	count;
 
 	i = 0;
