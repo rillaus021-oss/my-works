@@ -92,14 +92,10 @@ int	ft_putunsigned(unsigned int n)
 
 int     ft_printptr(void *ptr)
 {
+    int count;
     if (!ptr)
-    {
-        write(1, "(nil)", 5);
-        return (5);
-    }
-    else
-    {
-        write(1, "0x", 2);
-        ft_putaddress((unsigned long)ptr);
-    }
+        return (write(1, "(nil)", 5));
+    count = write(1, "0x", 2);
+    count += ft_putaddress((unsigned long)ptr);
+    retrun (count);
 }
