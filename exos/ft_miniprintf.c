@@ -154,8 +154,16 @@ int	ft_printf(const char *format, ...)
         else if (format[i + 1] == 'p')
         {
             ptr = va_arg(args, void *);
-            count += write(1, "0x", 2);
-            count += ft_putaddress((unsigned long)ptr);
+            if (!ptr)
+            {
+                write(1, "(nil)", 5);
+                count += 5;
+            }
+            else
+            {
+                count += write(1, "0x", 2);
+                count += ft_putaddress((unsigned long)ptr);
+            }
             i += 2;
         }
         else
