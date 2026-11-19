@@ -1,109 +1,48 @@
+
 #include "ft_printf.h"
 
-int ft_putaddress(unsigned long n)
+int	ft_putchar(char c)
 {
-    char    *base;
-    char    c;
-    int     count;
-    
-    base = "0123456789abcdef";
-    count = 0;
-    if (n >= 16)
-        count += ft_putaddress(n/16);
-    c = base[n % 16];
-    count += ft_putchar(c);
-	return (count);
-}
-
-int ft_putchar(char c)
-{
-	return(write(1, &c, 1));
-}
-
-int	ft_puthex(unsigned int n, char format)
-{
-	char	*base;
-	int		count;
-	char	c;
-
-	count = 0;
-	if (format == 'x')
-		base = "0123456789abcdef";
-	else
-		base = "0123456789ABCDEF";
-	if (n >= 16)
-		count += ft_puthex(n / 16, format);
-	c = base[n % 16];
-	count += ft_putchar(c);
-	return (count);
-}
-
-int	ft_putnbr(int n)
-{
-	long	nb;
-	char	c;
-    int     count;
-
-	nb = n;
-    count = 0;
-	if (nb < 0)
-	{
-		write(1, "-", 1);
-		nb = -nb;
-        count++;
-	}
-	if (nb >= 10)
-		count += ft_putnbr((int)(nb / 10));
-	c = (nb % 10) + '0';
-	count += ft_putchar(c);
-    return (count);
+	return (write(1, &c, 1));
 }
 
 int	ft_putstr(char *str)
 {
 	int	i;
 
+	if (!str)
+		return (write(1, "(null)", 6));
 	i = 0;
-    if (!str)
-    {
-        write(1, "(null)", 6);
-        return (6);
-    }
 	while (str[i])
-    {
-        write(1, &str[i], 1);
-        i++;
-    }
-    return (i);
+		i++;
+	return (write(1, str, i));
+}
+
+int	ft_putnbr(int n)
+{
+	long	nb;
+	int		count;
+
+	nb = n;
+	count = 0;
+	if (nb < 0)
+	{
+		count += ft_putchar('-');
+		nb = -nb;
+	}
+	if (nb >= 10)
+		count += ft_putnbr((int)(nb / 10));
+	count += ft_putchar((nb % 10) + '0');
+	return (count);
 }
 
 int	ft_putunsigned(unsigned int n)
 {
-	char	c;
-	int		count;
+	int	count;
 
 	count = 0;
 	if (n >= 10)
 		count += ft_putunsigned(n / 10);
-	c = (n % 10) + '0';
-	count += ft_putchar(c);
-    return (count);
-}
-
-int     ft_printptr(void *ptr)
-{
-    int count;
-    if (!ptr)
-        return (write(1, "(nil)", 5));
-    count = write(1, "0x", 2);
-    count += ft_putaddress((unsigned long)ptr);
-    return (count);
-}
-
-int	ft_isformat(char c)
-{
-	if (c == 'c' || c == 's' || c == 'd' || c == 'i'
-		|| c == 'u' || c == 'x' || c == 'X' || c == 'p')
-		return (1);
-	return (0);
+	count += ft_putchar((n % 10) + '0');
+	return (count);
 }
