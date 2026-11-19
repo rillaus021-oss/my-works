@@ -20,7 +20,8 @@ int	ft_printf(const char *format, ...)
             count++;
         }
         else if (format[i + 1] == 'c' || format[i + 1] == 's' || format[i + 1] == 'd'
-                || format[i + 1] == 'i' || format[i + 1] == 'u')
+                || format[i + 1] == 'i' || format[i + 1] == 'u' || format[i + 1] == 'x' 
+                || format[i + 1] == 'X' || format[i + 1] == 'p')
         {
             count += ft_printformat(format[i + 1], args);
             i += 2;
@@ -30,17 +31,6 @@ int	ft_printf(const char *format, ...)
             write(1, "%", 1);
             i += 2;
             count++;
-        }
-        else if (format[i + 1] == 'x' || format[i + 1] == 'X')
-        {
-            u = va_arg(args, unsigned int);
-            count += ft_puthex(u, format[i + 1]);
-            i += 2;
-        }
-        else if (format[i + 1] == 'p')
-        {
-            count += ft_printptr(va_arg(args, void *));
-            i += 2;
         }
         else
             i++;

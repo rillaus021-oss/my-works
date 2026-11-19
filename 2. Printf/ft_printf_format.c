@@ -10,5 +10,9 @@ int    ft_printformat(char format, va_list args)
         return (ft_putnbr(va_arg(args, int)));
     if (format == 'u')
         return (ft_putunsigned(va_arg(args, unsigned int)));
+    if (format == 'x' || format == 'X')
+        return (ft_puthex(va_arg(args, unsigned int), format));
+    if (format == 'p')
+        return (ft_printptr(va_arg(args, void *)));
     return (0);
 }
