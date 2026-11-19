@@ -12,5 +12,6 @@ int     ft_putunsigned(unsigned int n);
 int     ft_puthex(unsigned int n, char format);
 int     ft_putaddress(unsigned long n);
 int     ft_printptr(void *ptr);
+int     ft_printformat(char format, va_list args);
 
 #endif

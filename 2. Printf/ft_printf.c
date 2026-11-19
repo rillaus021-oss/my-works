@@ -4,11 +4,9 @@ int	ft_printf(const char *format, ...)
 {
 	va_list	args;
 	int		i;
-	char	c;
     int     n;
     unsigned int    u;
     int	count;
-    char    *str;
 
 	i = 0;
     count = 0;
@@ -22,17 +20,10 @@ int	ft_printf(const char *format, ...)
             i++;
             count++;
         }
-        else if (format[i + 1] == 'c')
+        else if (format[i + 1] == 'c' || format[i + 1] == 's')
         {
-            c = va_arg(args, int);
-            count += ft_putchar(c);
+            count += ft_printformat(format[i + 1], args);
             i += 2;
-        }
-        else if (format[i + 1] == 's')
-        {
-            str = va_arg(args, char *);
-            i += 2;
-            count += ft_putstr(str);
         }
         else if (format[i + 1] == '%')
         {

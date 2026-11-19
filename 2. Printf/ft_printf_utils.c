@@ -97,5 +97,5 @@ int     ft_printptr(void *ptr)
         return (write(1, "(nil)", 5));
     count = write(1, "0x", 2);
     count += ft_putaddress((unsigned long)ptr);
-    retrun (count);
+    return (count);
 }
