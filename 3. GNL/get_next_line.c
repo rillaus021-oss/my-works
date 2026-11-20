@@ -10,12 +10,20 @@ char	*get_next_line(int fd)
 	tab = malloc(100);
 	if (!tab)
 		return (NULL);
-	while (n > 0 && c != '\n')
+	n = 1;
+	while (n > 0 && i < 99)
 	{
 		n = read(fd, &tab[i], 1);
+		if (n <= 0)
+			break ;
+		if (tab[i] == '\n')
+		{
+			i++;
+			break ;
+		}
 		i++;
 	}
-	if (n <= 0)
+	if (i == 0 && n <= 0)
 	{
 		free(tab);
 		return (NULL);
