@@ -5,29 +5,33 @@ char	*get_next_line(int fd)
 	char	*tab;
 	int		n;
 	int		i;
+	char	*temp;
+	char	buffer[2];
 
 	i = 0;
-	tab = malloc(100);
+	tab = malloc(1);
 	if (!tab)
 		return (NULL);
+	tab[0] = '\0';
 	n = 1;
-	while (n > 0 && i < 99)
+	while (n > 0)
 	{
-		n = read(fd, &tab[i], 1);
+		n = read(fd, buffer, 1);
 		if (n <= 0)
 			break ;
-		if (tab[i] == '\n')
-		{
-			i++;
+		buffer[1] = '\0';
+		temp = ft_strjoin(tab, buffer);
+		free(tab);
+		if (!temp)
+			return (NULL);
+		tab = temp;
+		if (buffer[0] == '\n')
 			break ;
-		}
-		i++;
 	}
-	if (i == 0 && n <= 0)
+	if (n < 0 || (n == 0 && tab[0] == '\0'))
 	{
 		free(tab);
 		return (NULL);
 	}
-	tab[i] = '\0';
 	return (tab);
 }
