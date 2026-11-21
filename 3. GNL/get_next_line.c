@@ -4,11 +4,9 @@ char	*get_next_line(int fd)
 {
 	char	*tab;
 	int		n;
-	int		i;
 	char	*temp;
-	char	buffer[2];
+	char	buffer[BUFFER_SIZE + 1];
 
-	i = 0;
 	tab = malloc(1);
 	if (!tab)
 		return (NULL);
@@ -16,10 +14,10 @@ char	*get_next_line(int fd)
 	n = 1;
 	while (n > 0)
 	{
-		n = read(fd, buffer, 1);
+		n = read(fd, buffer, BUFFER_SIZE);
 		if (n <= 0)
 			break ;
-		buffer[1] = '\0';
+		buffer[n] = '\0';
 		temp = ft_strjoin(tab, buffer);
 		free(tab);
 		if (!temp)
