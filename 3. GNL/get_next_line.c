@@ -66,9 +66,7 @@ static char	*ft_read_line(int fd, char *tab)
 char	*get_next_line(int fd)
 {
 	char	*tab;
-	int		n;
 	char	*temp;
-	char	buffer[BUFFER_SIZE + 1];
 	static char	*reste;
 
 	if (fd < 0 || BUFFER_SIZE <= 0)
@@ -78,20 +76,8 @@ char	*get_next_line(int fd)
 	reste = NULL;
 	if (!tab)
 		return (NULL);
-	n = 1;
-	while (n > 0 && !ft_strchr(tab, '\n'))
-	{
-		n = read(fd, buffer, BUFFER_SIZE);
-		if (n <= 0)
-			break ;
-		buffer[n] = '\0';
-		temp = ft_strjoin(tab, buffer);
-		free(tab);
-		if (!temp)
-			return (NULL);
-		tab = temp;
-	}
-	if (n < 0 || tab[0] == '\0')
+	tab = ft_read_line(fd, tab);
+	if (!tab || tab[0] == '\0')
 	{
 		free(tab);
 		reste = NULL;
