@@ -23,6 +23,19 @@ static char	*ft_extract_rest(char *str)
 	return (rest);
 }
 
+static char	*ft_init_line(char *reste)
+{
+	char	*tab;
+
+	if (reste)
+		return (reste);
+	tab = malloc(1);
+	if (!tab)
+		return (NULL);
+	tab[0] = '\0';
+	return (tab);
+}
+
 char	*get_next_line(int fd)
 {
 	char	*tab;
