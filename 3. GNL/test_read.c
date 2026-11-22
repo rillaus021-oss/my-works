@@ -144,7 +144,15 @@ char	*ft_append_buffer(char *tab, char *buffer)
         return (NULL);
     new = ft_strjoin(tab, buffer);
     if (!new)
+    {
+        free(tab);
         return (NULL);
+    }
     free(tab);
     return (new);
+}
+
+char	*ft_read_line(int fd, char *tab)
+{
+    
 }
