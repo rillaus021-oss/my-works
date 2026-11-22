@@ -62,6 +62,8 @@ char	*get_next_line(int fd)
 	if (n < 0 || (n == 0 && tab[0] == '\0'))
 	{
 		free(tab);
+		free(reste);
+		reste = NULL;
 		return (NULL);
 	}
 	temp = ft_extract_line(tab);
