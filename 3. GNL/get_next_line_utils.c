@@ -66,3 +66,22 @@ char	*ft_strchr(const char *str, int c)
 		return ((char *)&str[i]);
 	return (NULL);
 }
+
+char	*ft_extract_line(char *str)
+{
+	int i;
+	char *tab;
+
+	i = 0;
+	if (!str)
+		return (NULL);
+	while (str[i] != '\n')
+		i++;
+	tab = malloc(i+1);
+	if (!tab)
+		return (NULL);
+	while (tab)
+		[tab++] = [str++];
+	tab[i+1] = '\0';
+	return (tab);
+}

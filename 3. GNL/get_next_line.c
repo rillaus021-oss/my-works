@@ -6,6 +6,7 @@ char	*get_next_line(int fd)
 	int		n;
 	char	*temp;
 	char	buffer[BUFFER_SIZE + 1];
+	static char	*reste;
 
 	tab = malloc(1);
 	if (!tab)
