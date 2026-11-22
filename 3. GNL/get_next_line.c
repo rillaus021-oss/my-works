@@ -63,5 +63,8 @@ char	*get_next_line(int fd)
 		free(tab);
 		return (NULL);
 	}
-	return (tab);
+	temp = ft_extract_line(tab);
+	reste = ft_extract_rest(tab);
+	free(tab);
+	return (temp);
 }
