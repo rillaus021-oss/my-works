@@ -31,6 +31,9 @@ char	*get_next_line(int fd)
 	char	buffer[BUFFER_SIZE + 1];
 	static char	*reste;
 
+	if (fd < 0 || BUFFER_SIZE <= 0)
+		return (NULL);
+
 	if (reste)
 	{
 		tab = reste;
