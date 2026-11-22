@@ -44,7 +44,7 @@ char	*get_next_line(int fd)
 		tab[0] = '\0';
 	}
 	n = 1;
-	while (n > 0)
+	while (n > 0 && !ft_strchr(tab, '\n'))
 	{
 		n = read(fd, buffer, BUFFER_SIZE);
 		if (n <= 0)
