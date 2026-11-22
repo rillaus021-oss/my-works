@@ -59,10 +59,9 @@ char	*get_next_line(int fd)
 			return (NULL);
 		tab = temp;
 	}
-	if (n < 0 || (n == 0 && tab[0] == '\0'))
+	if (n < 0 || tab[0] == '\0')
 	{
 		free(tab);
-		free(reste);
 		reste = NULL;
 		return (NULL);
 	}
