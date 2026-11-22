@@ -23,7 +23,7 @@ char	*get_next_line(int fd)
 		if (!temp)
 			return (NULL);
 		tab = temp;
-		if (buffer[0] == '\n')
+		if (ft_strchr(buffer, '\n'))
 			break ;
 	}
 	if (n < 0 || (n == 0 && tab[0] == '\0'))

@@ -48,3 +48,21 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	ft_memcpy(out + a, s2, b + 1);
 	return (out);
 }
+
+char	*ft_strchr(const char *str, int c)
+{
+	int	i;
+
+	i = 0;
+	if (!str)
+		return (NULL);
+	while (str[i])
+	{
+		if (str[i] == (char)c)
+			return ((char *)&str[i]);
+		i++;
+	}
+	if (str[i] == (char)c)
+		return ((char *)&str[i]);
+	return (NULL);
+}
