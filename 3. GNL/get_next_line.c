@@ -47,18 +47,10 @@ char	*get_next_line(int fd)
 	if (fd < 0 || BUFFER_SIZE <= 0)
 		return (NULL);
 
-	if (reste)
-	{
-		tab = reste;
-		reste = NULL;
-	}
-	else
-	{
-		tab = malloc(1);
-		if (!tab)
-			return (NULL);
-		tab[0] = '\0';
-	}
+	tab = ft_init_line(reste);
+	reste = NULL;
+	if (!tab)
+		return (NULL);
 	n = 1;
 	while (n > 0 && !ft_strchr(tab, '\n'))
 	{
