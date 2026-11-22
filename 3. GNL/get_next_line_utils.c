@@ -69,19 +69,21 @@ char	*ft_strchr(const char *str, int c)
 
 char	*ft_extract_line(char *str)
 {
-	int i;
-	char *tab;
+	size_t	i;
+	char	*tab;
 
-	i = 0;
-	if (!str)
+	if (!str || !str[0])
 		return (NULL);
-	while (str[i] != '\n')
+	i = 0;
+	while (str[i] && str[i] != '\n')
 		i++;
-	tab = malloc(i+1);
+	if (str[i] == '\n')
+		i++;
+	tab = malloc(i + 1);
 	if (!tab)
 		return (NULL);
-	while (tab)
-		[tab++] = [str++];
-	tab[i+1] = '\0';
+	ft_memcpy(tab, str, i);
+	tab[i] = '\0';
 	return (tab);
 }
+
