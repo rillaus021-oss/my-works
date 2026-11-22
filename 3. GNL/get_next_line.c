@@ -66,6 +66,11 @@ char	*get_next_line(int fd)
 		return (NULL);
 	}
 	temp = ft_extract_line(tab);
+	if (!temp)
+	{
+		free(tab);
+		return (NULL);
+	}
 	reste = ft_extract_rest(tab);
 	free(tab);
 	return (temp);
