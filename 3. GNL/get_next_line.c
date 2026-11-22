@@ -90,6 +90,13 @@ char	*get_next_line(int fd)
 		return (NULL);
 	}
 	reste = ft_extract_rest(tab);
+	if (ft_strchr(tab, '\n')
+		&& ft_strchr(tab, '\n')[1] != '\0' && !reste)
+	{
+		free(temp);
+		free(tab);
+		return (NULL);
+	}
 	free(tab);
 	return (temp);
 }
