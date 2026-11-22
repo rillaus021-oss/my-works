@@ -1,102 +1,105 @@
+
 #include "get_next_line.h"
 
-static char	*ft_extract_rest(char *str)
+static int	ft_append(char **stash, char *buffer)
 {
-	char	*start;
-	char	*rest;
+	char	*joined;
+
+	joined = ft_strjoin(*stash, buffer);
+	if (!joined)
+		return (0);
+	free(*stash);
+	*stash = joined;
+	return (1);
+}
+
+static int	ft_fill_stash(int fd, char **stash)
+{
+	char	*buffer;
+	ssize_t	n;
+
+	buffer = malloc((size_t)GNL_READ_SIZE + 1);
+	if (!buffer)
+		return (0);
+	n = 1;
+	while (n > 0 && !ft_strchr(*stash, '\n'))
+	{
+		n = read(fd, buffer, GNL_READ_SIZE);
+		if (n > 0)
+		{
+			buffer[n] = '\0';
+			if (!ft_append(stash, buffer))
+			{
+				free(buffer);
+				return (0);
+			}
+		}
+	}
+	free(buffer);
+	return (n >= 0);
+}
+
+static void	ft_shift(char **stash, size_t start)
+{
+	size_t	i;
+
+	i = 0;
+	while ((*stash)[start + i])
+	{
+		(*stash)[i] = (*stash)[start + i];
+		i++;
+	}
+	(*stash)[i] = '\0';
+	if (i == 0)
+	{
+		free(*stash);
+		*stash = NULL;
+	}
+}
+
+static char	*ft_take_line(char **stash)
+{
+	char	*line;
 	size_t	len;
 
-	if (!str)
+	if (!*stash || !**stash)
 		return (NULL);
-	start = ft_strchr(str, '\n');
-	if (!start)
+	len = 0;
+	while ((*stash)[len] && (*stash)[len] != '\n')
+		len++;
+	if ((*stash)[len] == '\n')
+		len++;
+	line = malloc(len + 1);
+	if (!line)
 		return (NULL);
-	start++;
-	if (*start == '\0')
-		return (NULL);
-	len = ft_strlen(start);
-	rest = malloc(len + 1);
-	if (!rest)
-		return (NULL);
-	ft_memcpy(rest, start, len);
-	rest[len] = '\0';
-	return (rest);
-}
-
-static char	*ft_init_line(char *reste)
-{
-	char	*tab;
-
-	if (reste)
-		return (reste);
-	tab = malloc(1);
-	if (!tab)
-		return (NULL);
-	tab[0] = '\0';
-	return (tab);
-}
-
-static char	*ft_read_line(int fd, char *tab)
-{
-	char	buffer[(BUFFER_SIZE > 0) ? BUFFER_SIZE + 1 : 1];
-	char	*temp;
-	int		n;
-
-	n = 1;
-	while (n > 0 && !ft_strchr(tab, '\n'))
-	{
-		n = read(fd, buffer, BUFFER_SIZE);
-		if (n <= 0)
-			break ;
-		buffer[n] = '\0';
-		temp = ft_strjoin(tab, buffer);
-		free(tab);
-		if (!temp)
-			return (NULL);
-		tab = temp;
-	}
-	if (n < 0)
-	{
-		free(tab);
-		return (NULL);
-	}
-	return (tab);
+	ft_memcpy(line, *stash, len);
+	line[len] = '\0';
+	ft_shift(stash, len);
+	return (line);
 }
 
 char	*get_next_line(int fd)
 {
-	char	*tab;
-	char	*temp;
-	static char	*reste;
+	static char	*stash;
+	char		*line;
 
-	if (fd < 0 || BUFFER_SIZE <= 0)
-		return (NULL);
-
-	tab = ft_init_line(reste);
-	reste = NULL;
-	if (!tab)
-		return (NULL);
-	tab = ft_read_line(fd, tab);
-	if (!tab || tab[0] == '\0')
+	if (fd < 0 || BUFFER_SIZE <= 0 || read(fd, NULL, 0) < 0)
 	{
-		free(tab);
-		reste = NULL;
+		free(stash);
+		stash = NULL;
 		return (NULL);
 	}
-	temp = ft_extract_line(tab);
-	if (!temp)
+	if (!ft_fill_stash(fd, &stash))
 	{
-		free(tab);
+		free(stash);
+		stash = NULL;
 		return (NULL);
 	}
-	reste = ft_extract_rest(tab);
-	if (ft_strchr(tab, '\n')
-		&& ft_strchr(tab, '\n')[1] != '\0' && !reste)
+	line = ft_take_line(&stash);
+	if (!line)
 	{
-		free(temp);
-		free(tab);
-		return (NULL);
+		free(stash);
+		stash = NULL;
 	}
-	free(tab);
-	return (temp);
+	return (line);
 }
