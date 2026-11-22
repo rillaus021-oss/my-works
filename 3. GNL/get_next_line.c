@@ -38,7 +38,7 @@ static char	*ft_init_line(char *reste)
 
 static char	*ft_read_line(int fd, char *tab)
 {
-	char	buffer[BUFFER_SIZE + 1];
+	char	buffer[(BUFFER_SIZE > 0) ? BUFFER_SIZE + 1 : 1];
 	char	*temp;
 	int		n;
 
