@@ -36,6 +36,33 @@ static char	*ft_init_line(char *reste)
 	return (tab);
 }
 
+static char	*ft_read_line(int fd, char *tab)
+{
+	char	buffer[BUFFER_SIZE + 1];
+	char	*temp;
+	int		n;
+
+	n = 1;
+	while (n > 0 && !ft_strchr(tab, '\n'))
+	{
+		n = read(fd, buffer, BUFFER_SIZE);
+		if (n <= 0)
+			break ;
+		buffer[n] = '\0';
+		temp = ft_strjoin(tab, buffer);
+		free(tab);
+		if (!temp)
+			return (NULL);
+		tab = temp;
+	}
+	if (n < 0)
+	{
+		free(tab);
+		return (NULL);
+	}
+	return (tab);
+}
+
 char	*get_next_line(int fd)
 {
 	char	*tab;
