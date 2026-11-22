@@ -1,5 +1,28 @@
 #include "get_next_line.h"
 
+static char	*ft_extract_rest(char *str)
+{
+	char	*start;
+	char	*rest;
+	size_t	len;
+
+	if (!str)
+		return (NULL);
+	start = ft_strchr(str, '\n');
+	if (!start)
+		return (NULL);
+	start++;
+	if (*start == '\0')
+		return (NULL);
+	len = ft_strlen(start);
+	rest = malloc(len + 1);
+	if (!rest)
+		return (NULL);
+	ft_memcpy(rest, start, len);
+	rest[len] = '\0';
+	return (rest);
+}
+
 char	*get_next_line(int fd)
 {
 	char	*tab;
