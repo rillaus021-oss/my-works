@@ -74,7 +74,6 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	return (out);
 }
 
-
 char	*ft_strchr(const char *s, int c)
 {
 	int	i;
@@ -157,12 +156,21 @@ char	*ft_read_line(int fd, char *tab)
 	char	b_size[BUFFER_SIZE + 1];
 	int		lect;
 	char	*new;
+	int		i;
 
-	lect = read(fd, b_size, BUFFER_SIZE);
-	if (lect <= 0)
-		return (NULL);
-	b_size[lect] = '\0';
-	new = ft_append_buffer(tab, b_size);
+	i = 0;
+	while (tab[i])
+	{
+		if (!ft_strchr(tab, '\n'))
+			i++;
+		else
+			lect = read(fd, b_size, BUFFER_SIZE);
+			if (lect <= 0)
+				return (NULL);
+			b_size[lect] = '\0';
+			new = ft_append_buffer(tab, b_size);
+
+	}
 	if (!new)
         return (NULL);
 	return (new);
