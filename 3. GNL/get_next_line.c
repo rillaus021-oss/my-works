@@ -31,10 +31,18 @@ char	*get_next_line(int fd)
 	char	buffer[BUFFER_SIZE + 1];
 	static char	*reste;
 
-	tab = malloc(1);
-	if (!tab)
-		return (NULL);
-	tab[0] = '\0';
+	if (reste)
+	{
+		tab = reste;
+		reste = NULL;
+	}
+	else
+	{
+		tab = malloc(1);
+		if (!tab)
+			return (NULL);
+		tab[0] = '\0';
+	}
 	n = 1;
 	while (n > 0)
 	{
