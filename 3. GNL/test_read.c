@@ -154,5 +154,16 @@ char	*ft_append_buffer(char *tab, char *buffer)
 
 char	*ft_read_line(int fd, char *tab)
 {
-    
+	char	b_size[BUFFER_SIZE + 1];
+	int		lect;
+	char	*new;
+
+	lect = read(fd, b_size, BUFFER_SIZE);
+	if (lect <= 0)
+		return (NULL);
+	b_size[lect] = '\0';
+	new = ft_append_buffer(tab, b_size);
+	if (!new)
+        return (NULL);
+	return (new);
 }
