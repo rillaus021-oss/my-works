@@ -169,7 +169,6 @@ char	*ft_read_line(int fd, char *tab)
 				return (NULL);
 			b_size[lect] = '\0';
 			new = ft_append_buffer(tab, b_size);
-
 	}
 	if (!new)
         return (NULL);
