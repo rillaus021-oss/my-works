@@ -1,5 +1,17 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   get_next_line.c                                    :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: scahamad <scahamad@learner.42.tech>        +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/11/24 18:28:44 by scahamad          #+#    #+#             */
+/*   Updated: 2026/11/24 18:28:51 by scahamad         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
-#include <stdlib.h>
+
+#include "get_next_line.h"
 
 size_t	ft_strlen(const char *str)
 {
@@ -156,21 +168,36 @@ char	*ft_read_line(int fd, char *tab)
 	char	b_size[BUFFER_SIZE + 1];
 	int		lect;
 	char	*new;
-	int		i;
 
-	i = 0;
-	while (tab[i])
-	{
-		if (!ft_strchr(tab, '\n'))
-			i++;
-		else
-			lect = read(fd, b_size, BUFFER_SIZE);
-			if (lect <= 0)
-				return (NULL);
-			b_size[lect] = '\0';
-			new = ft_append_buffer(tab, b_size);
-	}
-	if (!new)
+    while (!ft_strchr(tab, '\n'))
+    {
+        lect = read(fd, b_size, BUFFER_SIZE);
+        if (lect < 0)
+        {
+            free(tab);
+            return (NULL);
+        }
+        else if (lect == 0)
+            break;
+        b_size[lect] = '\0';
+        new = ft_append_buffer(tab, b_size);
+        if (!new)
+            return (NULL);
+        tab = new;
+    }
+	return (tab);
+}
+
+char    *get_next_line(int fd)
+{
+    static char *reste;
+    char *line;
+
+    if (fd < 0 || BUFFER_SIZE <= 0)
         return (NULL);
-	return (new);
+    if (!reste)
+        reste = malloc(1);
+    if (!reste)
+        return (NULL);
+    reste = '\0';
 }
